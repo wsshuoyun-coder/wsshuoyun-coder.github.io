@@ -992,6 +992,9 @@ mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 8
   break-inside: avoid;
   margin-bottom: 0;
 }
+.work-card.aigc-wide .work-img {
+  aspect-ratio: 16/9 !important;
+}
 .work-card.film::before,
 .work-card.film::after {
   display: none;
@@ -2364,6 +2367,7 @@ function renderWorks(filter = 'all') {
     card.className = 'work-card reveal';
     if (work.cat === 'photo') card.classList.add('fashion');
     if (work.cat === 'video') card.classList.add('film');
+    if (work.cat === 'aigc' && work.type === 'video') card.classList.add('aigc-wide');
     if (i % 3 === 1) card.classList.add('reveal-delay-1');
     if (i % 3 === 2) card.classList.add('reveal-delay-2');
     card.innerHTML = `
