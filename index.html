@@ -772,6 +772,104 @@ mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 8
   box-shadow: 0 8px 24px var(--accent-glow);
 }
 
+/* ===== Events Section ===== */
+.events {
+  background: var(--bg-alt);
+}
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-8);
+}
+.event-card {
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: var(--s-10) var(--s-8);
+  border: 1px solid var(--border);
+  transition: all var(--dur) var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--dur-slow) var(--ease);
+}
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(106, 148, 64, 0.12);
+  border-color: var(--accent);
+}
+.event-card:hover::before {
+  transform: scaleY(1);
+}
+.event-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 4px 14px;
+  border-radius: var(--r-full);
+  margin-bottom: var(--s-4);
+  letter-spacing: 0.05em;
+}
+.event-title {
+  font-family: var(--font-zh);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--s-2);
+  line-height: 1.3;
+}
+.event-meta {
+  font-family: var(--font-zh);
+  font-size: 14px;
+  color: var(--text-3);
+  margin-bottom: var(--s-5);
+}
+.event-meta span + span::before {
+  content: '·';
+  margin: 0 var(--s-2);
+  color: var(--text-3);
+}
+.event-desc {
+  font-family: var(--font-zh);
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.8;
+  margin-bottom: var(--s-6);
+}
+.event-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-6);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--border);
+}
+.event-result {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.event-result-num {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.event-result-label {
+  font-family: var(--font-zh);
+  font-size: 12px;
+  color: var(--text-3);
+}
+
 /* ===== Works Section ===== */
 .works {
   background: var(--bg);
@@ -1489,6 +1587,7 @@ mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 8
   .section { padding: var(--s-20) var(--s-5); }
   .section-title { font-size: 32px; }
   .works-grid { columns: 1; column-gap: 0; }
+  .events-grid { grid-template-columns: 1fr; }
   .timeline { padding-left: 30px; }
   .timeline::before { left: 8px; }
   .timeline-item::before { left: -26px; width: 10px; height: 10px; }
@@ -1594,6 +1693,7 @@ mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 8
   <div class="nav-links" id="navLinks">
     <a href="#hero">首页</a>
     <a href="#about">关于</a>
+    <a href="#events">活动</a>
     <a href="#works">作品</a>
     <a href="#contact">联系</a>
     <a href="#contact" class="nav-cta">合作邀约</a>
@@ -1847,6 +1947,64 @@ mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 8
       <button class="internship-expand-btn" onclick="toggleInternship(this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
       </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Events ===== -->
+<section class="section events" id="events">
+  <div class="section-inner">
+    <div class="section-header reveal visible reveal-hidden">
+      <span class="section-label">Event Planning</span>
+      <h2 class="section-title">活动策划</h2>
+      <p class="section-desc">从方案设计到落地执行，驱动用户参与与内容生产，让好内容被更多人看见。</p>
+    </div>
+    <div class="events-grid">
+      <!-- Event 1: 好未来 闪闪发光的暑假 -->
+      <div class="event-card reveal visible reveal-hidden">
+        <span class="event-tag">2025.08 · 30天</span>
+        <h3 class="event-title">闪闪发光的暑假</h3>
+        <div class="event-meta">
+          <span>好未来</span>
+          <span>活动策划</span>
+        </div>
+        <p class="event-desc">
+          通过发起用户暑假打卡视频征集活动，引导用户将日常学习场景上传至小程序平台，以此实现学习机的产品营销与品牌传播。负责活动整体策划，包括活动名称制定、活动规则设计、线上视频制作及活动预热视频制作。
+        </p>
+        <div class="event-results">
+          <div class="event-result">
+            <span class="event-result-num">100+</span>
+            <span class="event-result-label">人次参与</span>
+          </div>
+          <div class="event-result">
+            <span class="event-result-num">1</span>
+            <span class="event-result-label">个营销小程序</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 2: 快手读书 故事大王 -->
+      <div class="event-card reveal visible reveal-hidden">
+        <span class="event-tag">2025.10 · 30天</span>
+        <h3 class="event-title">故事大王</h3>
+        <div class="event-meta">
+          <span>快手读书</span>
+          <span>活动策划 &amp; 落地执行</span>
+        </div>
+        <p class="event-desc">
+          在读书垂类发起视频征集活动，促产更多头部作者，让头部作者的优质内容被更多人看见，同时挖掘新兴优秀内容创作者。全流程参与活动策划与落地执行，包括活动规则制定、达人沟通、活动促产等环节。
+        </p>
+        <div class="event-results">
+          <div class="event-result">
+            <span class="event-result-num">2</span>
+            <span class="event-result-label">位头部达人跃迁</span>
+          </div>
+          <div class="event-result">
+            <span class="event-result-num">10+</span>
+            <span class="event-result-label">位新兴作者发掘</span>
+          </div>
         </div>
       </div>
     </div>
@@ -2288,7 +2446,9 @@ const photoImgs = [
 const posterImgs = [
   'posters/poster-1.jpg',
   'posters/poster-2.jpg',
-  'posters/poster-4.png'
+  'posters/poster-4.png',
+  'posters/poster-5.png',
+  'posters/poster-6.png'
 ];
 // ===== AIGC Video =====
 const aigcVideo = 'videos/aigc-video.mp4?v=3';
@@ -2352,6 +2512,8 @@ const worksData = [
   { cat: 'poster', catLabel: '海报', title: '星星人海报', meta: '创意海报', img: posterImgs[1] },
   
   { cat: 'poster', catLabel: '海报', title: '理肤泉商业海报', meta: '商业海报 · 品牌合作', img: posterImgs[2], type: 'image' },
+  { cat: 'poster', catLabel: '海报', title: '双11服饰节', meta: '电商海报 · 促销设计', img: posterImgs[3], type: 'image' },
+  { cat: 'poster', catLabel: '海报', title: '春日约会', meta: '创意海报 · 春日主题', img: posterImgs[4], type: 'image' },
   
   
   { cat: 'aigc', catLabel: 'AIGC', title: '小郭测评', meta: 'AIGC视频创作', img: aigcVideoThumb, video: aigcVideo, type: 'video' },
